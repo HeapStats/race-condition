@@ -4,8 +4,9 @@ This repostiory includes a framework and test cases for testing race conditions 
 
 ## Usage
 
-1. Add directories of test cases to `testlist.txt`
-2. Run `testcase.sh`
+1. set HEAPSTATS_LIB environment variables to the heapstats shared object file
+2. Add directories of test cases to `testlist.txt`
+3. Run `testcase.sh`
 
 ```
 $ bash testcase.sh <file>
@@ -18,6 +19,13 @@ $ bash testcase.sh <--clean|--result> <file>
 ```
 
 `<>` are optional.
+
+examples:
+
+```
+export HEAPSTATS_LIB=/usr/lib64/heapstats/libheapstats-2.1.so.3
+$ bash testcase.sh testlist.txt
+```
 
 * `file`: specify a file instead of `testlist.txt`
 * `--clean`: clear all test cases' results.
