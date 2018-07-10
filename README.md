@@ -20,18 +20,28 @@ $ bash testcase.sh <--clean|--result> <file>
 
 `<>` are optional.
 
-examples:
+* `file`: specify a test list file. You can ommit it if you aim to use `testlist.txt`
+* `--clean`: clear all test cases' results.
+* `--result`: show a summary of all test cases' result (not run test).
 
+When you use `--clean` and `--result`, you can also specify test cases by `file`.
+
+command example:
 ```
 export HEAPSTATS_LIB=/usr/lib64/heapstats/libheapstats-2.1.so.3
 $ bash testcase.sh testlist.txt
 ```
 
-* `file`: specify a file instead of `testlist.txt`
-* `--clean`: clear all test cases' results.
-* `--result`: show a summary of all test cases' result (not run test).
+## Environment
+* HeapStats : 2.1.*
+* python : 2.*
+* OS : Fedora
 
-When you use `--clean` and `--result`, you can also specify test cases by `file`.
+## Other Notice
+VMDeath/DataDumpRequest may fail because of JVM bug. If so, delete the test.
+```
+rm -rf VMDeath/DataDumpRequest
+```
 
 ## How to add new tase cases for testing race conditions.
 
